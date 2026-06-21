@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer components {
+  .container-lp {
+    @apply mx-auto w-full max-w-content px-6;
+  }
+
+  /* Hero 見出し3行（PC専用・各行が独立／共通サイズ制御なし） */
+  .hero-heading-lead {
+    width: 90%;
+    margin: 24px 0 2px 0;
+    padding-left: 40px;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: #0b2348;
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+
+  .hero-heading-main {
+    width: 90%;
+    margin: 0 0 2px 0;
+    padding-left: 40px;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+
+  .hero-heading-main .hero-main-gold {
+    font-size: 78px;
+    font-weight: 900;
+    line-height: 0.95;
+    color: #c9a84c;
+  }
+
+  .hero-heading-main .hero-main-de {
+    font-size: 62px;
+    font-weight: 900;
+    color: #0b2348;
+  }
+
+  .hero-heading-close {
+    width: 90%;
+    margin: 0 0 22px 0;
+    padding-left: 40px;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1;
+    color: #0b2348;
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+
+  /* Hero 赤CTA：心拍のようなパルス（scale + box-shadow）。60秒バッジは子要素として一体で拡縮 */
+  .hero-cta-pulse {
+    animation: heroCtaPulse 1.8s ease-in-out infinite;
+    will-change: transform;
+  }
+}
+
+@keyframes heroCtaPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 20px rgba(192, 57, 43, 0.28);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 14px 34px rgba(192, 57, 43, 0.45);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta-pulse {
+    animation: none;
+  }
+}

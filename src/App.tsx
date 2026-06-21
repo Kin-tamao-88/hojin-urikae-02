@@ -1,0 +1,33 @@
+import { Footer } from "./components/Footer"
+import { Hero } from "./components/sections/Hero"
+import { Pain } from "./components/sections/Pain"
+import { Hope } from "./components/sections/Hope"
+import { Comparison } from "./components/sections/Comparison"
+import { Checklist } from "./components/sections/Checklist"
+import { Strength } from "./components/sections/Strength"
+import { CaseStudy } from "./components/sections/CaseStudy"
+import { Flow } from "./components/sections/Flow"
+import { Faq } from "./components/sections/Faq"
+import { FinalCta } from "./components/sections/FinalCta"
+
+function App() {
+  return (
+    <div className="flex min-h-screen flex-col">
+      <main className="flex-1">
+        <Hero />
+        <Pain />
+        <Hope />
+        <Comparison />
+        <Checklist />
+        <Strength />
+        <CaseStudy />
+        <Flow />
+        <Faq />
+        <FinalCta />
+      </main>
+      <Footer />
+    </div>
+  )
+}
+
+export default App

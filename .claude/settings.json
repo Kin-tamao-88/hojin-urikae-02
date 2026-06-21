@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(//c/Users/Mr.FX/hojin-urikae/**)",
+      "Write(//c/Users/Mr.FX/hojin-urikae/**)",
+      "Bash(npx tsc *)",
+      "Bash(node shot.mjs)"
+    ]
+  }
+}
