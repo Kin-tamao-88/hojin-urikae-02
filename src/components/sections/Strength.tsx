@@ -1,34 +1,30 @@
-import type { ReactNode } from "react"
-import { Building2, Clock, MapPin } from "lucide-react"
 import { SectionHeading } from "../ui/SectionHeading"
 
 /* ───────── 信頼を「数字・実績」で示す統一カード（横並び3枚） ───────── */
 type StatData = {
-  Icon: (p: { className?: string; strokeWidth?: number }) => ReactNode
   label: string
   pre?: string
   big: string
   unit?: string
   desc: string
+  highlight?: boolean
 }
 
 const stats: StatData[] = [
   {
-    Icon: Building2,
     label: "対応実績",
     big: "1,000",
     unit: "件以上",
     desc: "他社で断られた法人も含め、これまで多数の法人売却を成約へと導いてきました。",
   },
   {
-    Icon: Clock,
     label: "スピード",
     pre: "最短",
     big: "即日",
     desc: "スピーディーな審査と査定で、ご相談から最短即日での現金化に対応します。",
+    highlight: true,
   },
   {
-    Icon: MapPin,
     label: "専門性",
     pre: "全国",
     big: "47",
@@ -37,28 +33,31 @@ const stats: StatData[] = [
   },
 ]
 
-function StatCard({ Icon, label, pre, big, unit, desc }: StatData) {
+function StatCard({ label, pre, big, unit, desc, highlight }: StatData) {
   return (
-    <div className="flex h-full flex-col rounded-lg border border-navy/10 bg-white p-7 md:p-8">
-      {/* ラベル＋アイコン */}
-      <div className="flex items-center gap-3">
-        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-navy/[0.04] text-gold-dark ring-1 ring-gold/30">
-          <Icon className="h-[22px] w-[22px]" strokeWidth={1.7} />
-        </span>
-        <span className="text-[15px] font-extrabold tracking-wide text-navy">{label}</span>
-      </div>
-
-      {/* 数字（主役） */}
-      <p className="mt-5 flex items-baseline gap-1.5">
-        {pre && <span className="text-lg font-extrabold text-ink-light">{pre}</span>}
-        <span className="text-[52px] font-black leading-none tracking-tight text-navy">{big}</span>
-        {unit && <span className="text-xl font-extrabold text-gold-dark">{unit}</span>}
+    <div
+      className={`flex h-full flex-col rounded-lg border p-7 md:p-8 ${
+        highlight ? "border-[#1e3a5f] bg-[#1e3a5f]" : "border-navy/10 bg-white"
+      }`}
+    >
+      {/* 数字（主役・特大ゴールド） */}
+      <p className="flex items-baseline gap-1.5">
+        {pre && (
+          <span className={`text-xl font-extrabold ${highlight ? "text-white/80" : "text-[#1e3a5f]"}`}>{pre}</span>
+        )}
+        <span className="text-[56px] font-black leading-none tracking-tight text-[#9a7a3a]">{big}</span>
+        {unit && <span className="text-2xl font-extrabold text-[#9a7a3a]">{unit}</span>}
       </p>
 
-      <span className="mt-6 h-px w-full bg-navy/10" aria-hidden />
+      {/* ラベル */}
+      <span className={`mt-4 text-[15px] font-extrabold tracking-wide ${highlight ? "text-white" : "text-[#1e3a5f]"}`}>
+        {label}
+      </span>
 
-      {/* 説明 */}
-      <p className="mt-5 text-sm leading-relaxed text-ink-light">{desc}</p>
+      <span className={`mt-5 h-px w-full ${highlight ? "bg-white/20" : "bg-navy/10"}`} aria-hidden />
+
+      {/* 説明（#1e3a5f／推しカードは白） */}
+      <p className={`mt-5 text-sm leading-relaxed ${highlight ? "text-white" : "text-[#1e3a5f]"}`}>{desc}</p>
     </div>
   )
 }
