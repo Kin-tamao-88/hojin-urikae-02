@@ -1,15 +1,14 @@
-import { Mail, ChevronRight, Globe, Building2, Clock } from 'lucide-react'
+import { Mail, ChevronRight } from 'lucide-react'
 import heroConsultation from '../../assets/hero/hero-consultation.png'
 import saruLogo from '../../assets/hero/saru-logo.png'
 
-const BG = '#f8f7f4'
-const NAVY = '#1a2744'
-const ORANGE = '#e8550a'
+const BG = '#F5F2EC'
+const NAVY = '#1E2A4A'
+const ORANGE = '#C2440F'
 
-export const Hero = () => {
+export default function Hero() {
   return (
-    <section style={{ backgroundColor: BG }}>
-
+    <>
       {/* ===== HEADER ===== */}
       <header style={{
         backgroundColor: '#ffffff',
@@ -21,7 +20,7 @@ export const Hero = () => {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <img src={saruLogo} alt="法人サルベージ協会" style={{ height: '80px', width: 'auto' }} />
-          <span style={{ color: NAVY, fontWeight: 900, fontSize: '2rem', letterSpacing: '0.04em' }}>
+          <span style={{ color: NAVY, fontWeight: 900, fontSize: '2.3rem', letterSpacing: '0.04em' }}>
             法人サルベージ協会
           </span>
         </div>
@@ -39,144 +38,174 @@ export const Hero = () => {
         </a>
       </header>
 
-      {/* ===== HERO MAIN ===== */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '42% 58%',
-        height: '580px',
-        width: '100%',
+      {/* ===== HERO SECTION ===== */}
+      <section style={{
+        width: '100vw',
+        backgroundColor: BG,
+        position: 'relative',
         overflow: 'hidden',
+        height: '560px',
       }}>
 
-        {/* 左：コピー */}
+        {/* 画像エリア */}
+        <div style={{
+          position: 'absolute',
+          right: 0,
+          top: 0,
+          width: '56%',
+          height: '100%',
+        }}>
+          <div style={{
+            position: 'absolute',
+            top: 0, bottom: 0, left: 0,
+            width: '20%',
+            zIndex: 1,
+            pointerEvents: 'none',
+            background: `linear-gradient(to right, ${BG} 0%, transparent 100%)`,
+          }} />
+          <img
+            src={heroConsultation}
+            alt="法人の無料相談の様子"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center top',
+              display: 'block',
+            }}
+          />
+        </div>
+
+        {/* テキストエリア */}
         <div style={{
           position: 'relative',
+          maxWidth: '1280px',
+          margin: '0 auto',
+          height: '100%',
           display: 'flex',
-          flexDirection: 'column' as const,
-          justifyContent: 'center',
           alignItems: 'center',
-          padding: '24px 16px 20px 5%',
+          paddingLeft: '64px',
         }}>
-          {/* ロゴ：右上に絶対配置 */}
-          <img
-            src={saruLogo}
-            alt="法人サルベージ協会"
-            style={{ position: 'absolute', top: '20px', right: '20px', height: '120px', width: 'auto', opacity: 0.9 }}
-          />
-          <div style={{ maxWidth: '460px', width: '100%' }}>
+          <div style={{ width: '44%' }}>
 
-            {/* 不要法人を */}
-            <p style={{ color: NAVY, fontSize: '3rem', fontWeight: 700, lineHeight: 1.2, margin: '0' }}>
-              不要法人を
+            <p style={{ fontSize: '20px', color: NAVY, fontWeight: 500, margin: '0 0 8px 0' }}>
+              不要な法人が
             </p>
 
-            {/* 現金化する */}
-            <span style={{ display: 'inline-block', position: 'relative', margin: '0 0 4px 0' }}>
-              <span style={{ color: ORANGE, fontSize: '5.7rem', fontWeight: 900, lineHeight: 1.0 }}>
-                現金化する
-              </span>
-              <span style={{
-                position: 'absolute', left: '2%', bottom: '6px',
-                width: '85%', height: '12px',
-                background: 'rgba(232,85,10,0.38)',
-                borderRadius: '3px', display: 'block', zIndex: -1,
-              }} />
+            <span style={{ display: 'inline-block', position: 'relative', margin: '0 0 18px 0' }}>
+              <h1 style={{
+                fontSize: '64px',
+                color: ORANGE,
+                fontWeight: 900,
+                lineHeight: 1,
+                margin: 0,
+              }}>
+                高額資金に変わる。
+              </h1>
+              <svg
+                style={{ position: 'absolute', left: 0, bottom: '-6px', width: '100%', overflow: 'visible' }}
+                height="10"
+                viewBox="0 0 400 10"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2 8 Q80 3 160 7 Q240 11 320 6 Q370 3 398 7"
+                  stroke={ORANGE}
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+              </svg>
             </span>
 
-            {/* 新常識 */}
-            <p style={{ color: NAVY, fontSize: '6rem', fontWeight: 900, lineHeight: 1.1, margin: '8px 0 16px 0' }}>
-              <span style={{
-                display: 'inline',
-                background: 'linear-gradient(to top, rgba(232,85,10,0.28) 40%, transparent 40%)',
-              }}>
-                新常識
-              </span>
+            <p style={{ fontSize: '20px', color: NAVY, fontWeight: 500, margin: '0 0 24px 0' }}>
+              それが、<span style={{ color: ORANGE, fontWeight: 700 }}>法人サルベージ</span>です。
             </p>
 
-            {/* サブコピー */}
-            <p style={{ color: NAVY, fontSize: '1.4rem', lineHeight: 1.8, margin: 0 }}>
+            <p style={{ fontSize: '17px', color: '#374151', lineHeight: 1.8, margin: 0 }}>
               休眠法人・赤字法人・債務超過法人も<br />
               <span style={{ color: ORANGE, fontWeight: 600 }}>価値が残っている</span>可能性があります。
             </p>
 
           </div>
         </div>
+      </section>
 
-        {/* 右：相談写真 */}
-        <div style={{ position: 'relative', overflow: 'hidden' }}>
-          <div style={{
-            position: 'absolute', top: 0, bottom: 0, left: 0,
-            width: '8%', zIndex: 10, pointerEvents: 'none',
-            background: `linear-gradient(to right, ${BG} 0%, rgba(248,247,244,0.4) 60%, transparent 100%)`,
-          }} />
-          <img
-            src={heroConsultation}
-            alt="法人の無料相談の様子"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
-          />
-        </div>
-      </div>
-
-      {/* ===== 3 POINTS ===== */}
-      <div style={{ backgroundColor: BG, borderTop: '1px solid #e0ddd8' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
+      {/* ===== 3カラム特徴エリア ===== */}
+      <section style={{
+        backgroundColor: '#ffffff',
+        borderTop: '1px solid #E5E7EB',
+      }}>
+        <div style={{
+          maxWidth: '1280px',
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr 1fr',
+        }}>
 
           {/* 01 */}
-          <div style={{ padding: '14px 36px', borderRight: '1px solid #e0ddd8' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '12px' }}>
-              <div style={{
-                width: '52px', height: '52px', borderRadius: '50%',
-                backgroundColor: ORANGE, color: '#ffffff',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontWeight: 800, fontSize: '1.2rem', fontStyle: 'italic', flexShrink: 0,
-              }}>01</div>
-              <Building2 style={{ width: '36px', height: '36px', color: ORANGE }} />
-            </div>
-            <h3 style={{ color: NAVY, fontSize: '1.6rem', fontWeight: 900, lineHeight: 1.2, margin: '0 0 4px 0' }}>買取条件</h3>
-            <p style={{ color: ORANGE, fontSize: '0.95rem', fontWeight: 700, margin: '0 0 8px 0' }}>業界最高水準</p>
-            <p style={{ color: '#555', fontSize: '1rem', lineHeight: 1.6, margin: 0 }}>他社で断られた法人もご相談可能です。</p>
+          <div style={{ padding: '40px 48px', borderRight: '1px solid #E5E7EB' }}>
+            <div style={{
+              width: '40px', height: '40px', borderRadius: '50%',
+              backgroundColor: ORANGE, color: '#ffffff',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontWeight: 700, fontSize: '14px',
+              marginBottom: '16px',
+            }}>01</div>
+            <h3 style={{ fontSize: '20px', fontWeight: 700, color: NAVY, margin: '0 0 12px 0' }}>
+              価値が残る可能性
+            </h3>
+            <p style={{ fontSize: '16px', color: '#374151', lineHeight: 1.7, margin: 0 }}>
+              解散前に査定することで、思わぬ価値が見つかる場合があります。
+            </p>
           </div>
 
           {/* 02 */}
-          <div style={{ padding: '14px 36px', borderRight: '1px solid #e0ddd8' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '12px' }}>
-              <div style={{
-                width: '52px', height: '52px', borderRadius: '50%',
-                backgroundColor: ORANGE, color: '#ffffff',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontWeight: 800, fontSize: '1.2rem', fontStyle: 'italic', flexShrink: 0,
-              }}>02</div>
-              <Clock style={{ width: '36px', height: '36px', color: ORANGE }} />
-            </div>
-            <h3 style={{ color: NAVY, fontSize: '1.6rem', fontWeight: 900, lineHeight: 1.2, margin: '0 0 4px 0' }}>現金化可能</h3>
-            <p style={{ color: ORANGE, fontSize: '0.95rem', fontWeight: 700, margin: '0 0 8px 0' }}>最短即日で</p>
-            <p style={{ color: '#555', fontSize: '1rem', lineHeight: 1.6, margin: 0 }}>スピーディーに査定し、最短即日での現金化が可能です。</p>
+          <div style={{ padding: '40px 48px', borderRight: '1px solid #E5E7EB' }}>
+            <div style={{
+              width: '40px', height: '40px', borderRadius: '50%',
+              backgroundColor: ORANGE, color: '#ffffff',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontWeight: 700, fontSize: '14px',
+              marginBottom: '16px',
+            }}>02</div>
+            <h3 style={{ fontSize: '20px', fontWeight: 700, color: NAVY, margin: '0 0 12px 0' }}>
+              最短即日査定
+            </h3>
+            <p style={{ fontSize: '16px', color: '#374151', lineHeight: 1.7, margin: 0 }}>
+              売却可能性をスピーディーに確認できます。
+            </p>
           </div>
 
           {/* 03 */}
-          <div style={{ padding: '14px 36px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '12px' }}>
-              <div style={{
-                width: '52px', height: '52px', borderRadius: '50%',
-                backgroundColor: ORANGE, color: '#ffffff',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontWeight: 800, fontSize: '1.2rem', fontStyle: 'italic', flexShrink: 0,
-              }}>03</div>
-              <Globe style={{ width: '36px', height: '36px', color: ORANGE }} />
-            </div>
-            <h3 style={{ color: NAVY, fontSize: '1.6rem', fontWeight: 900, lineHeight: 1.2, margin: '0 0 4px 0' }}>来店不要で完結</h3>
-            <p style={{ color: ORANGE, fontSize: '0.95rem', fontWeight: 700, margin: '0 0 8px 0' }}>全国オンライン対応</p>
-            <p style={{ color: '#555', fontSize: '1rem', lineHeight: 1.6, margin: 0 }}>日本全国どこからでもご利用いただけるオンライン完結のサービスです。</p>
+          <div style={{ padding: '40px 48px' }}>
+            <div style={{
+              width: '40px', height: '40px', borderRadius: '50%',
+              backgroundColor: ORANGE, color: '#ffffff',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontWeight: 700, fontSize: '14px',
+              marginBottom: '16px',
+            }}>03</div>
+            <h3 style={{ fontSize: '20px', fontWeight: 700, color: NAVY, margin: '0 0 12px 0' }}>
+              来店不要で完結
+            </h3>
+            <p style={{ fontSize: '16px', color: '#374151', lineHeight: 1.7, margin: 0 }}>
+              全国どこからでもオンラインで手続き可能です。
+            </p>
           </div>
         </div>
 
-        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '8px 36px 14px' }}>
-          <p style={{ fontSize: '0.65rem', color: '#aaa', margin: 0 }}>
-            ※法令・定款・契約内容等により、買取できない場合があります。
-          </p>
-        </div>
-      </div>
-
-    </section>
+        <p style={{
+          fontSize: '12px',
+          color: '#9CA3AF',
+          textAlign: 'center',
+          padding: '12px 0',
+          margin: 0,
+        }}>
+          ※法令・定款・契約内容等により、買取できない場合があります。
+        </p>
+      </section>
+    </>
   )
 }

@@ -1,5 +1,5 @@
 import { Footer } from "./components/Footer"
-import { Hero } from "./components/sections/Hero"
+import Hero from "./components/sections/Hero"
 import { HopeSection } from "./components/sections/HopeSection"
 import { Pain } from "./components/sections/Pain"
 import { Hope } from "./components/sections/Hope"
