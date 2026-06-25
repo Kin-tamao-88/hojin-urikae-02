@@ -1,10 +1,9 @@
-import { Mail, ChevronRight, AlertCircle } from "lucide-react"
-import iconGraphDown from "../../assets/icons/icon-graph-down.png"
-import iconDebt from "../../assets/icons/icon-debt.png"
-import iconSleeping from "../../assets/icons/icon-sleeping.png"
-import iconTax from "../../assets/icons/icon-tax.png"
-import iconElderly from "../../assets/icons/icon-elderly.png"
-import iconSuccessor from "../../assets/icons/icon-successor.png"
+import iconGraphDown from "../../assets/icons/icon-graph-down-jcao.png"
+import iconDebt from "../../assets/icons/icon-debt-jcao.png"
+import iconSleeping from "../../assets/icons/icon-sleeping-jcao.png"
+import iconTax from "../../assets/icons/icon-tax-jcao.png"
+import iconElderly from "../../assets/icons/icon-elderly-jcao.png"
+import iconSuccessor from "../../assets/icons/icon-successor-jcao.png"
 
 const ORANGE = "#e8550a"
 const NAVY = "#1a2744"
@@ -16,22 +15,22 @@ const topItems = [
   {
     icon: iconGraphDown,
     title: "赤字法人",
-    desc: "業績が赤字の状態でも、事業価値を適切に評価し、売却できる可能性があります。",
-    iconSize: 72,
+    desc: "業績が赤字の状態でも、事業価値を適切に評価し、売却できる可能性が高いです。",
+    iconSize: 62,
     titleSize: "2.6rem",
   },
   {
     icon: iconDebt,
     title: "債務超過",
-    desc: "負債が資産を上回る状態でも、再生ノウハウを持つ買い手につなぐことが可能です。",
-    iconSize: 64,
+    desc: "負債が資産を上回る状態でも、再生ノウハウを持つ買い手にお繋ぎすることが可能です。",
+    iconSize: 62,
     titleSize: "2.2rem",
   },
   {
     icon: iconSleeping,
     title: "休眠法人",
-    desc: "長期間事業を停止している法人でも、価値を見出す買い手が見つかる可能性があります。",
-    iconSize: 68,
+    desc: "休眠で価値が下がる事は滅多にありません。\n状況整理後、適切な対応をご提案します。",
+    iconSize: 62,
     titleSize: "2.4rem",
   },
 ]
@@ -95,12 +94,12 @@ export function Pain() {
                   fontWeight: 900,
                   color: ORANGE,
                   margin: 0,
-                  lineHeight: 1.1,
+                  lineHeight: 1.1,whiteSpace: "nowrap"
                 }}>
                   {item.title}
                 </h3>
               </div>
-              <p style={{ fontSize: "0.88rem", color: "#555", lineHeight: 1.8, margin: 0 }}>
+              <p style={{ fontSize: "0.88rem", color: "#555", lineHeight: 1.8, margin: 0, whiteSpace: "pre-line" }}>
                 {item.desc}
               </p>
             </div>
@@ -127,43 +126,6 @@ export function Pain() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* CTA帯 */}
-        <div style={{
-          background: "#ffffff",
-          border: "1.5px solid rgba(232,85,10,0.2)",
-          padding: "24px 32px",
-          display: "flex", alignItems: "center", justifyContent: "space-between", gap: "24px",
-        }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            <div style={{
-              width: "64px", height: "64px", borderRadius: "50%",
-              background: ORANGE, flexShrink: 0,
-              display: "flex", alignItems: "center", justifyContent: "center",
-            }}>
-              <AlertCircle size={22} color="#ffffff" strokeWidth={2} />
-            </div>
-            <div>
-              <p style={{ fontSize: "1.1rem", fontWeight: 900, color: DARK, margin: "0 0 3px" }}>
-                まずは<span style={{ color: ORANGE }}>無料で相談</span>してみませんか？
-              </p>
-              <p style={{ fontSize: "0.82rem", color: "#777", margin: 0 }}>
-                秘密厳守・相談無料で、あなたの状況に合わせた最適なご提案をいたします。
-              </p>
-            </div>
-          </div>
-          <a href="#contact" style={{
-            display: "flex", alignItems: "center", gap: "10px",
-            background: ORANGE, color: "#ffffff",
-            fontSize: "1rem", fontWeight: 800,
-            padding: "14px 28px", textDecoration: "none",
-            whiteSpace: "nowrap", flexShrink: 0,
-          }}>
-            <Mail size={18} strokeWidth={2} />
-            無料で査定してみる
-            <ChevronRight size={18} strokeWidth={2.5} />
-          </a>
         </div>
 
       </div>
