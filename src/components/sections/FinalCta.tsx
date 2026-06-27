@@ -1,11 +1,7 @@
 import { useState } from 'react';
-import { Mail, Phone, Lock, Clock, CheckCircle } from 'lucide-react';
+import { Mail, Phone, CheckCircle } from 'lucide-react';
 
-const trustItems = [
-  { icon: <Clock size={18} color="#e8550a" strokeWidth={2} />, text: '最短即日対応' },
-  { icon: <Lock size={18} color="#e8550a" strokeWidth={2} />, text: '秘密厳守・NDA締結' },
-  { icon: <CheckCircle size={18} color="#e8550a" strokeWidth={2} />, text: '相談・査定 完全無料' },
-];
+const trustTexts = ['最短即日対応', '秘密厳守・NDA締結', '相談・査定無料'];
 
 export function FinalCta() {
   const [form, setForm] = useState({
@@ -27,11 +23,11 @@ export function FinalCta() {
   };
 
   return (
-    <section id="contact" style={{ background: '#fff8f5', padding: '80px 0' }}>
-      <div style={{ maxWidth: 860, margin: '0 auto', padding: '0 24px' }}>
+    <section id="contact" className="fct-section" style={{ background: '#fbf7f3', padding: '80px 0' }}>
+      <div style={{ maxWidth: 860, margin: '0 auto', padding: '0 8px' }}>
 
         {/* ヘッダー */}
-        <div style={{ textAlign: 'center', marginBottom: 48 }}>
+        <div className="fct-header" style={{ textAlign: 'center', marginBottom: 48 }}>
           <p style={{
             color: '#e8550a',
             fontWeight: 700,
@@ -41,7 +37,7 @@ export function FinalCta() {
           }}>
             CONTACT
           </p>
-          <h2 style={{
+          <h2 className="fct-heading" style={{
             fontWeight: 900,
             fontSize: 'clamp(1.6rem, 4vw, 2.4rem)',
             color: '#1a1a1a',
@@ -50,40 +46,45 @@ export function FinalCta() {
           }}>
             まずは<span style={{ color: '#e8550a' }}>無料で相談</span>してみませんか？
           </h2>
-          <p style={{ color: '#555', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>
+          <p className="fct-subtext" style={{ color: '#555', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>
             秘密厳守・相談無料で、あなたの状況に合わせた最適なご提案をいたします。
             <br />
             しつこい営業は一切いたしません。
           </p>
 
-          {/* トラストバッジ */}
-          <div style={{
+          {/* PC: 横並び区切り線 */}
+          <div className="fct-trust-pc" style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: 16,
+            alignItems: 'center',
             marginTop: 24,
-            flexWrap: 'wrap',
           }}>
-            {trustItems.map((item, i) => (
-              <div key={i} style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 6,
-                background: '#fff0ea',
-                border: '1px solid #f5d5c0',
-                borderRadius: 999,
-                padding: '6px 16px',
-              }}>
-                {item.icon}
-                <span style={{ color: '#e8550a', fontSize: '0.85rem', fontWeight: 600 }}>{item.text}</span>
-              </div>
+            {trustTexts.map((text, i) => (
+              <span key={i} style={{ display: 'flex', alignItems: 'center' }}>
+                {i > 0 && <span style={{ color: '#c4bdb5', margin: '0 14px', fontWeight: 400, fontSize: 14 }}>｜</span>}
+                <span style={{ fontSize: 15, fontWeight: 600, color: '#1a2744' }}>{text}</span>
+              </span>
+            ))}
+          </div>
+
+          {/* SP: テキスト縦リスト */}
+          <div className="fct-trust-sp" style={{ display: 'none', marginTop: 14 }}>
+            {trustTexts.map((text, i) => (
+              <p key={i} style={{
+                fontSize: 14,
+                fontWeight: 600,
+                color: '#1a2744',
+                lineHeight: 1.9,
+                margin: i < trustTexts.length - 1 ? '0 0 2px' : 0,
+                textAlign: 'center',
+              }}>{text}</p>
             ))}
           </div>
         </div>
 
         {/* フォームカード */}
         {!submitted ? (
-          <div style={{
+          <div className="fct-form-card" style={{
             background: '#ffffff',
             borderRadius: 20,
             padding: 'clamp(24px, 5vw, 48px)',
@@ -203,10 +204,24 @@ export function FinalCta() {
       </div>
 
       <style>{`
-        @media (max-width: 600px) {
-          .fct-row {
-            grid-template-columns: 1fr !important;
-          }
+        @media (max-width: 768px) {
+          .fct-row { grid-template-columns: 1fr !important; }
+          .fct-section { padding: 40px 0 !important; }
+          .fct-section > div { padding-left: 16px !important; padding-right: 16px !important; }
+
+          /* ヘッダー余白削減 */
+          .fct-header { margin-bottom: 32px !important; }
+          .fct-heading { margin-bottom: 6px !important; }
+
+          /* 説明文 */
+          .fct-subtext { font-size: 16px !important; line-height: 1.8 !important; }
+
+          /* SP: 横リスト非表示 → 縦リスト表示 */
+          .fct-trust-pc { display: none !important; }
+          .fct-trust-sp { display: block !important; }
+
+          /* フォームカード上部padding削減 */
+          .fct-form-card { padding: 16px 20px 28px !important; }
         }
       `}</style>
     </section>

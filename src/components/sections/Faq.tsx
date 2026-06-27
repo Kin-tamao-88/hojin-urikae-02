@@ -36,11 +36,11 @@ export function Faq() {
   };
 
   return (
-    <section style={{ background: '#ffffff', padding: '80px 0' }}>
+    <section className="faq-section" style={{ background: '#ffffff', padding: '80px 0' }}>
       <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 24px' }}>
 
         {/* ヘッダー */}
-        <div style={{ textAlign: 'center', marginBottom: 48 }}>
+        <div className="faq-header" style={{ textAlign: 'center', marginBottom: 48 }}>
           <p style={{
             color: '#e8550a',
             fontWeight: 700,
@@ -77,6 +77,7 @@ export function Faq() {
               >
                 {/* 質問行 */}
                 <button
+                  className="faq-question-btn"
                   onClick={() => toggle(idx)}
                   style={{
                     width: '100%',
@@ -92,7 +93,7 @@ export function Faq() {
                   }}
                 >
                   {/* Q バッジ */}
-                  <span style={{
+                  <span className="faq-q-badge" style={{
                     background: '#e8550a',
                     color: '#fff',
                     fontWeight: 900,
@@ -175,6 +176,14 @@ export function Faq() {
           })}
         </div>
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .faq-section { padding: 60px 0 !important; }
+          .faq-header { margin-bottom: 28px !important; }
+          .faq-question-btn { padding: 16px 20px !important; }
+          .faq-q-badge { width: 34px !important; height: 34px !important; font-size: 0.9rem !important; border-radius: 7px !important; }
+        }
+      `}</style>
     </section>
   );
 }

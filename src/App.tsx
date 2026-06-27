@@ -9,7 +9,9 @@ import { Strength } from "./components/sections/Strength"
 import { CaseStudy } from "./components/sections/CaseStudy"
 import { Flow } from "./components/sections/Flow"
 import { Faq } from "./components/sections/Faq"
+import { UrgencyBanner } from "./components/sections/UrgencyBanner"
 import { FinalCta } from "./components/sections/FinalCta"
+import { MobileFixedCta } from "./components/ui/MobileFixedCta"
 
 function App() {
   return (
@@ -25,7 +27,9 @@ function App() {
         <CaseStudy />
         <Flow />
         <Faq />
+        <UrgencyBanner />
         <FinalCta />
+        <MobileFixedCta />
       </main>
       <Footer />
     </div>
